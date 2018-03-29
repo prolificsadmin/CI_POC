@@ -63,7 +63,7 @@
       <arg value="${iib.svr}" />
       <arg value="-a" />
       <arg value="${iib.propertiesfileloc}" />
-      <arg value="-m" />
+      <!--<arg value="-m" />-->
     </exec>
   	
     <!--<exec executable="mqsideploy">
