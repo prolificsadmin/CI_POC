@@ -1,0 +1,90 @@
+<project name="IIB-CI-MAIN" default="dev" basedir="..">
+  <description>IIB Continuous Integration Demo (main script)</description>
+
+  <target name="init">
+    <tstamp />
+    <property environment="env" />
+    <property name="path.build" value="DEV" />
+    <property file="${path.build}/build.properties" />
+  </target>
+
+  <target name="dev" depends="init">
+    <!-- clean workspace -->
+
+
+    <!-- build workspace and create BAR file -->
+    <exec executable="mqsicreatebar">
+      <arg value="-data" />
+      <arg value="${basedir}" />
+      <arg value="-b" />
+      <arg value="${iib.bar}" />
+      <arg value="-a" />
+      <arg value="TEST_APPL" />
+      <arg value="-l" />
+    <!--<arg value="NCL_CommonFramework_LIB" />	
+      <arg value="-deployAsSource" /> -->      <!-- we cannot inline artifacts in a shared library -->
+    </exec>
+
+    <!-- Alternative: package BAR file without building workspace
+      <exec executable="mqsipackagebar">
+        <arg value="-a" />
+        <arg value="${iib.bar}" />
+        <arg value="-k" />
+        <arg value="HTTPESQLEchoApp" />
+        <arg value="HTTPJavaEchoApp" />
+        <arg value="-y" />
+        <arg value="HTTPEchoLib" />
+      </exec>
+    -->
+
+    <exec executable="mqsiapplybaroverride">
+      <arg value="-b" />
+      <arg value="${iib.bar}" />
+      <arg value="-p" />
+      <arg value="${iib.properties}${iib.propertiesfilename}" />
+	  <arg value="-r" /> 
+	  <arg value="-o" />
+	  <arg value="${iib.propertiesfileloc}" />
+    </exec>
+
+    <!--exec executable="mqsiapplybaroverride">
+      <arg value="-b" />
+      <arg value="${iib.bar}" />
+      <arg value="-m" />
+      <arg value="main#HTTP Input.URLSpecifier=/${http.java.echo.url}" />
+      <arg value="-k" />
+      <arg value="HTTPJavaEchoApp" />
+    </exec-->
+
+    <exec executable="mqsideploy">
+      <arg value="-n" />
+      <arg value="${iib.brkfileloc}${iib.brkfilename1}" />
+      <arg value="-e" />
+      <arg value="${iib.svr}" />
+      <arg value="-a" />
+      <arg value="${iib.propertiesfileloc}" />
+      <arg value="-m" />
+    </exec>
+  	
+    <exec executable="mqsideploy">
+      <arg value="-n" />
+      <arg value="${iib.brkfileloc}${iib.brkfilename2}" />
+      <arg value="-e" />
+      <arg value="${iib.svr}" />
+      <arg value="-a" />
+      <arg value="${iib.propertiesfileloc}" />
+      <arg value="-m" />
+    </exec>
+
+  	<copy file="/var/POC/${iib.appname}_DEV.bar" overwrite="true" todir="/var/POC/backup/${iib.appname}_DEV.bar_${DSTAMP}${TSTAMP}"/>
+    <!--exec executable="mqsireportproperties">
+      <arg value="${iib.node}" />
+      <arg value="-e" />
+      <arg value="${iib.svr}" />
+      <arg value="-o" />
+      <arg value="HTTPConnector" />
+      <arg value="-r" />
+    </exec-->
+
+  </target>
+</project>

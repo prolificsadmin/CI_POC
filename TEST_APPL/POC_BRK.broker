@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IntegrationNodeConnectionParameters Version="10.0.0.9" host="10.11.34.143" listenerPort="8085" integrationNodeName="POC_BRK" userName="shshukla"  password="K@iser04" useSsl="false" xmlns="http://www.ibm.com/xmlns/prod/websphere/iib/8/IntegrationNodeConnectionParameters" />
