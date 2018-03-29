@@ -66,15 +66,15 @@
       <arg value="-m" />
     </exec>
   	
-    <exec executable="mqsideploy">
+    <!--<exec executable="mqsideploy">
       <arg value="-n" />
-      <arg value="${iib.brkfileloc}${iib.brkfilename2}" />
+      <arg value="${iib.brkfileloc}${iib.brkfilename}" />
       <arg value="-e" />
       <arg value="${iib.svr}" />
       <arg value="-a" />
       <arg value="${iib.propertiesfileloc}" />
       <arg value="-m" />
-    </exec>
+    </exec>-->
 
   	<copy file="/var/POC/${iib.appname}_DEV.bar" overwrite="true" todir="/var/POC/backup/${iib.appname}_DEV.bar_${DSTAMP}${TSTAMP}"/>
     <!--exec executable="mqsireportproperties">
