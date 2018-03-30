@@ -20,8 +20,8 @@
       <arg value="${iib.bar}" />
       <arg value="-a" />
       <arg value="TEST_APPL" />
-      <arg value="-l" />
-    <!--<arg value="NCL_CommonFramework_LIB" />	
+      <!--<arg value="-trace" />
+      <arg value="NCL_CommonFramework_LIB" />	
       <arg value="-deployAsSource" /> -->      <!-- we cannot inline artifacts in a shared library -->
     </exec>
 
@@ -35,8 +35,7 @@
         <arg value="-y" />
         <arg value="HTTPEchoLib" />
       </exec>
-    -->
-
+    
     <exec executable="mqsiapplybaroverride">
       <arg value="-b" />
       <arg value="${iib.bar}" />
@@ -46,6 +45,8 @@
 	  <arg value="-o" />
 	  <arg value="${iib.propertiesfileloc}" />
     </exec>
+
+	-->
 
     <!--exec executable="mqsiapplybaroverride">
       <arg value="-b" />
