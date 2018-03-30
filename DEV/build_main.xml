@@ -48,14 +48,16 @@
     </exec>
 
 	
-    <!--exec executable="mqsiapplybaroverride">
+    <exec executable="mqsiapplybaroverride">
       <arg value="-b" />
       <arg value="${iib.bar}" />
       <arg value="-m" />
-      <arg value="main#HTTP Input.URLSpecifier=/${http.java.echo.url}" />
+      <arg value="main#MQ Input.Queue name=/${MQ.Queue.IN.Name},MQ Output.Queue name=/${MQ.Queue.Out.Name}" />
       <arg value="-k" />
-      <arg value="HTTPJavaEchoApp" />
-    </exec-->
+      <arg value="TEST_APPL" />
+    </exec>
+  	
+  	
 
     <exec executable="mqsideploy">
       <arg value="-n" />
