@@ -78,7 +78,7 @@
       <arg value="-m" />
     </exec>-->
 
-  	<copy file="/var/POC/${iib.appname}_DEV.bar" overwrite="true" todir="/var/POC/backup/${iib.appname}_DEV.bar_${DSTAMP}${TSTAMP}"/>
+  	<copy file="/var/lib/jenkins/workspace/CI_POC_CB/${iib.appname}_DEV.bar" overwrite="true" todir="/var/lib/jenkins/workspace/CI_POC_CB/Backup/${iib.appname}_DEV.bar_${DSTAMP}${TSTAMP}"/>
     <!--exec executable="mqsireportproperties">
       <arg value="${iib.node}" />
       <arg value="-e" />
