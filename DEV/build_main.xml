@@ -52,7 +52,7 @@
       <arg value="-b" />
       <arg value="${iib.bar}" />
       <arg value="-m" />
-      <arg value="main#MQ Input.Queue name=/${MQ.Queue.IN.Name},MQ Output.Queue name=/${MQ.Queue.Out.Name}" />
+      <arg value="TEST_MSG_FLOW#MQ Input.queueName=${MQ Input.queueName},TEST_MSG_FLOW#MQ Output.queueName=${MQ Output.queueName}" />
       <arg value="-k" />
       <arg value="TEST_APPL" />
     </exec>
