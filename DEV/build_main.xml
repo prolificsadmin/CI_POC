@@ -11,7 +11,6 @@
   <target name="dev" depends="init">
     <!-- clean workspace -->
 
-
     <!-- build workspace and create BAR file -->
     <exec executable="mqsicreatebar">
       <arg value="-data" />
